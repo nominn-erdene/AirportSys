@@ -1,8 +1,0 @@
-C:\Users\HP\Documents\win\Airport\Airport.DisplayApp\obj\Debug\net8.0\Airport.DisplayApp.csproj.AssemblyReference.cache
-C:\Users\HP\Documents\win\Airport\Airport.DisplayApp\obj\Debug\net8.0\Airport.DisplayApp.Form1.resources
-C:\Users\HP\Documents\win\Airport\Airport.DisplayApp\obj\Debug\net8.0\Airport.DisplayApp.csproj.GenerateResource.cache
-C:\Users\HP\Documents\win\Airport\Airport.DisplayApp\obj\Debug\net8.0\Airport.DisplayApp.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\HP\Documents\win\Airport\Airport.DisplayApp\obj\Debug\net8.0\Airport.DisplayApp.AssemblyInfoInputs.cache
-C:\Users\HP\Documents\win\Airport\Airport.DisplayApp\obj\Debug\net8.0\Airport.DisplayApp.AssemblyInfo.cs
-C:\Users\HP\Documents\win\Airport\Airport.DisplayApp\obj\Debug\net8.0\Airport.DisplayApp.csproj.CoreCompileInputs.cache
-C:\Users\HP\Documents\win\Airport\Airport.DisplayApp\obj\Debug\net8.0\Airport.DisplayApp.MvcApplicationPartsAssemblyInfo.cache
