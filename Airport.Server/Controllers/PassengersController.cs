@@ -1,6 +1,7 @@
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
 using Airport.Core.Interfaces;
+using Airport.Core.Models;
 
 namespace Airport.Server.Controllers
 {
@@ -16,37 +17,35 @@ namespace Airport.Server.Controllers
         }
 
         [HttpGet("{passportNumber}")]
-        public async Task<IActionResult> GetPassenger(string passportNumber)
+        public async Task<ActionResult<Passenger>> GetPassenger(string passportNumber)
         {
-            var passenger = await _passengerService.GetPassengerByPassportAsync(passportNumber);
+            var passenger = await _passengerService.GetPassengerByPassportNumber(passportNumber);
             if (passenger == null)
                 return NotFound();
 
             return Ok(passenger);
         }
 
-        [HttpPost("{passportNumber}/checkin")]
-        public async Task<IActionResult> CheckIn(string passportNumber, [FromBody] CheckInRequest request)
+        [HttpPost("checkin")]
+        public async Task<ActionResult<BoardingPass>> CheckInPassenger([FromBody] CheckInRequest request)
         {
-            var success = await _passengerService.CheckInPassengerAsync(passportNumber, request.FlightId, request.SeatNumber);
-            if (!success)
-                return BadRequest("Check-in failed");
+            try
+            {
+                var boardingPass = await _passengerService.CheckInPassenger(
+                    request.FlightId,
+                    request.PassportNumber,
+                    request.SeatNumber);
 
-            return Ok();
+                return Ok(boardingPass);
+            }
+            catch (System.Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
-        [HttpPost("{passportNumber}/boardingpass")]
-        public async Task<IActionResult> GenerateBoardingPass(string passportNumber, [FromQuery] int flightId)
-        {
-            var success = await _passengerService.GenerateBoardingPassAsync(passportNumber, flightId);
-            if (!success)
-                return BadRequest("Could not generate boarding pass");
-
-            return Ok();
-        }
-
-        [HttpGet("{passportNumber}/seat")]
-        public async Task<IActionResult> GetPassengerSeat(string passportNumber, [FromQuery] int flightId)
+        [HttpGet("{passportNumber}/seat/{flightId}")]
+        public async Task<ActionResult<Seat>> GetPassengerSeat(string passportNumber, int flightId)
         {
             var seat = await _passengerService.GetPassengerSeatAsync(passportNumber, flightId);
             if (seat == null)
@@ -54,11 +53,22 @@ namespace Airport.Server.Controllers
 
             return Ok(seat);
         }
+
+        [HttpPost("{passportNumber}/boardingpass/{flightId}")]
+        public async Task<ActionResult<bool>> GenerateBoardingPass(string passportNumber, int flightId)
+        {
+            var result = await _passengerService.GenerateBoardingPassAsync(passportNumber, flightId);
+            if (!result)
+                return BadRequest();
+
+            return Ok(true);
+        }
     }
 
     public class CheckInRequest
     {
         public int FlightId { get; set; }
+        public string PassportNumber { get; set; }
         public string SeatNumber { get; set; }
     }
 } 

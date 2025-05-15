@@ -5,35 +5,37 @@ using System.Net.Http;
 using System.Text.Json;
 using Microsoft.AspNetCore.SignalR.Client;
 
-namespace Airport.DisplayApp.Forms
+namespace Airport.StatusApp.Forms
 {
-    public class DisplayForm : Form
+    public class StatusManagementForm : Form
     {
         private readonly HttpClient _httpClient;
         private readonly string _apiBaseUrl = "http://localhost:5268/api";
         private readonly HubConnection _hubConnection;
         private DataGridView _flightsGrid;
-        private System.Windows.Forms.Timer _refreshTimer;
+        private ComboBox _statusComboBox;
+        private Button _updateButton;
         private Label _connectionStatusLabel;
 
-        public DisplayForm()
+        public StatusManagementForm()
         {
             _httpClient = new HttpClient();
             _hubConnection = new HubConnectionBuilder()
-                .WithUrl("http://localhost:5268/flighthub")
+                .WithUrl("http://localhost:5268/flightHub")
                 .WithAutomaticReconnect()
                 .Build();
 
             InitializeComponents();
             InitializeSignalRAsync();
-            StartRefreshTimer();
+            StartPeriodicRefresh();
         }
 
         private void InitializeComponents()
         {
             this.Size = new Size(1000, 600);
-            this.Text = "Нислэгийн Мэдээлэл";
+            this.Text = "Нислэгийн Төлөв Удирдах";
 
+            // Connection status label
             _connectionStatusLabel = new Label
             {
                 Dock = DockStyle.Top,
@@ -42,10 +44,40 @@ namespace Airport.DisplayApp.Forms
                 Font = new Font(Font.FontFamily, 10)
             };
 
+            // Status selection panel
+            var statusPanel = new Panel
+            {
+                Dock = DockStyle.Top,
+                Height = 60,
+                Padding = new Padding(10)
+            };
+
+            _statusComboBox = new ComboBox
+            {
+                Location = new Point(10, 20),
+                Width = 200,
+                DropDownStyle = ComboBoxStyle.DropDownList
+            };
+            _statusComboBox.Items.AddRange(Enum.GetNames(typeof(FlightStatus)));
+
+            _updateButton = new Button
+            {
+                Text = "Төлөв Өөрчлөх",
+                Location = new Point(220, 19),
+                Width = 120,
+                Height = 25
+            };
+            _updateButton.Click += async (s, e) => await UpdateFlightStatus();
+
+            statusPanel.Controls.AddRange(new Control[] { _statusComboBox, _updateButton });
+
+            // Flights grid
             _flightsGrid = new DataGridView
             {
                 Dock = DockStyle.Fill,
                 AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill,
+                SelectionMode = DataGridViewSelectionMode.FullRowSelect,
+                MultiSelect = false,
                 AllowUserToAddRows = false,
                 AllowUserToDeleteRows = false,
                 ReadOnly = true
@@ -53,6 +85,7 @@ namespace Airport.DisplayApp.Forms
 
             _flightsGrid.Columns.AddRange(new DataGridViewColumn[]
             {
+                new DataGridViewTextBoxColumn { Name = "Id", HeaderText = "ID", Visible = false },
                 new DataGridViewTextBoxColumn { Name = "FlightNumber", HeaderText = "Нислэгийн дугаар" },
                 new DataGridViewTextBoxColumn { Name = "Destination", HeaderText = "Чиглэл" },
                 new DataGridViewTextBoxColumn { Name = "DepartureTime", HeaderText = "Нислэгийн цаг" },
@@ -60,8 +93,14 @@ namespace Airport.DisplayApp.Forms
                 new DataGridViewTextBoxColumn { Name = "Gate", HeaderText = "Гарц" }
             });
 
-            this.Controls.Add(_connectionStatusLabel);
-            this.Controls.Add(_flightsGrid);
+            _flightsGrid.SelectionChanged += (s, e) =>
+            {
+                var hasSelection = _flightsGrid.SelectedRows.Count > 0;
+                _statusComboBox.Enabled = hasSelection;
+                _updateButton.Enabled = hasSelection;
+            };
+
+            this.Controls.AddRange(new Control[] { _connectionStatusLabel, statusPanel, _flightsGrid });
         }
 
         private async void InitializeSignalRAsync()
@@ -117,14 +156,16 @@ namespace Airport.DisplayApp.Forms
             }
         }
 
-        private void StartRefreshTimer()
+        private void StartPeriodicRefresh()
         {
-            _refreshTimer = new System.Windows.Forms.Timer();
-            _refreshTimer.Interval = 30000; // 30 секунд
-            _refreshTimer.Tick += async (s, e) => await LoadFlights();
-            _refreshTimer.Start();
+            var timer = new System.Windows.Forms.Timer
+            {
+                Interval = 30000 // 30 seconds
+            };
+            timer.Tick += async (s, e) => await LoadFlights();
+            timer.Start();
 
-            // Load flights immediately
+            // Initial load
             _ = LoadFlights();
         }
 
@@ -142,6 +183,7 @@ namespace Airport.DisplayApp.Forms
                     foreach (var flight in flights)
                     {
                         _flightsGrid.Rows.Add(
+                            flight.Id,
                             flight.FlightNumber,
                             flight.Destination,
                             flight.DepartureTime.ToString("g"),
@@ -178,12 +220,47 @@ namespace Airport.DisplayApp.Forms
             }
         }
 
+        private async Task UpdateFlightStatus()
+        {
+            if (_flightsGrid.SelectedRows.Count == 0 || _statusComboBox.SelectedItem == null)
+            {
+                MessageBox.Show("Нислэг болон шинэ төлөв сонгоно уу!");
+                return;
+            }
+
+            var selectedRow = _flightsGrid.SelectedRows[0];
+            var flightId = (int)selectedRow.Cells["Id"].Value;
+            var newStatus = (FlightStatus)Enum.Parse(typeof(FlightStatus), _statusComboBox.SelectedItem.ToString());
+
+            try
+            {
+                var response = await _httpClient.PutAsync(
+                    $"{_apiBaseUrl}/flights/{flightId}/status",
+                    new StringContent(JsonSerializer.Serialize(newStatus), System.Text.Encoding.UTF8, "application/json"));
+
+                if (response.IsSuccessStatusCode)
+                {
+                    await LoadFlights();
+                    MessageBox.Show("Нислэгийн төлөв амжилттай өөрчлөгдлөө!");
+                }
+                else
+                {
+                    MessageBox.Show("Төлөв өөрчлөхөд алдаа гарлаа!");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Алдаа гарлаа: {ex.Message}");
+            }
+        }
+
         protected override void OnFormClosing(FormClosingEventArgs e)
         {
             base.OnFormClosing(e);
-            _refreshTimer?.Stop();
-            _refreshTimer?.Dispose();
-            _ = _hubConnection?.DisposeAsync();
+            if (_hubConnection != null)
+            {
+                _ = _hubConnection.DisposeAsync();
+            }
         }
     }
 } 

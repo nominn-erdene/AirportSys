@@ -38,5 +38,17 @@ namespace Airport.Server.Hubs
         {
             await Groups.RemoveFromGroupAsync(Context.ConnectionId, flightNumber);
         }
+
+        // Нислэгийн мэдээлэл өөрчлөгдөх үед дуудагдана
+        public async Task UpdateFlightStatus(int flightId, FlightStatus newStatus)
+        {
+            await Clients.All.SendAsync("FlightStatusChanged", flightId, newStatus);
+        }
+
+        // Суудал захиалагдах үед дуудагдана
+        public async Task UpdateSeatStatus(string flightNumber, string seatNumber, bool isOccupied)
+        {
+            await Clients.All.SendAsync("ReceiveSeatUpdate", flightNumber, seatNumber, isOccupied);
+        }
     }
 } 

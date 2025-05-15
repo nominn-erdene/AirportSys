@@ -8,6 +8,7 @@ using System.Drawing;
 using System.Threading.Tasks;
 using System.Net.Http;
 using System.Collections.Generic;
+using Microsoft.AspNetCore.SignalR.Client;
 
 namespace Airport.CheckInApp.Forms
 {
@@ -15,9 +16,10 @@ namespace Airport.CheckInApp.Forms
     {
         private readonly Socket _clientSocket;
         private readonly HttpClient _httpClient;
-        private readonly string _apiBaseUrl = "http://localhost:5000/api";
+        private readonly string _apiBaseUrl = "http://localhost:5268/api";
         private Flight _currentFlight;
         private List<Button> _seatButtons;
+        private readonly HubConnection _hubConnection;
 
         public MainForm()
         {
@@ -26,6 +28,14 @@ namespace Airport.CheckInApp.Forms
             _clientSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
             _seatButtons = new List<Button>();
             ConnectToServer();
+
+            // Initialize SignalR connection
+            _hubConnection = new HubConnectionBuilder()
+                .WithUrl("http://localhost:5268/flightHub")
+                .WithAutomaticReconnect()
+                .Build();
+
+            InitializeSignalR();
         }
 
         private void InitializeComponent()
@@ -291,6 +301,32 @@ namespace Airport.CheckInApp.Forms
             }
         }
 
+        private async void InitializeSignalR()
+        {
+            try
+            {
+                await _hubConnection.StartAsync();
+                MessageBox.Show("SignalR холболт амжилттай", "Мэдээлэл", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"SignalR холболт амжилтгүй: {ex.Message}", "Алдаа", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private async void UpdateFlightStatus(int flightId, FlightStatus newStatus)
+        {
+            try
+            {
+                // Send status update through SignalR
+                await _hubConnection.InvokeAsync("UpdateFlightStatus", flightId, newStatus);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Төлөв өөрчлөх үед алдаа гарлаа: {ex.Message}", "Алдаа", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
         protected override void OnFormClosing(FormClosingEventArgs e)
         {
             base.OnFormClosing(e);
@@ -298,6 +334,10 @@ namespace Airport.CheckInApp.Forms
             {
                 _clientSocket.Shutdown(SocketShutdown.Both);
                 _clientSocket.Close();
+            }
+            if (_hubConnection != null)
+            {
+                _hubConnection.DisposeAsync().AsTask().Wait();
             }
         }
     }

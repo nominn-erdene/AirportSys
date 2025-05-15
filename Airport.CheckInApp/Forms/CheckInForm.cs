@@ -3,6 +3,7 @@ using System.Drawing;
 using Airport.Core.Models;
 using System.Net.Http;
 using System.Text.Json;
+using Microsoft.AspNetCore.SignalR.Client;
 
 namespace Airport.CheckInApp.Forms
 {
@@ -18,11 +19,47 @@ namespace Airport.CheckInApp.Forms
         private Label _passengerInfoLabel;
         private FlowLayoutPanel _seatPanel;
         private Flight? _currentFlight;
+        private HubConnection? _hubConnection;
 
         public CheckInForm()
         {
             _httpClient = new HttpClient();
             InitializeComponents();
+            InitializeSignalRAsync();
+        }
+
+        private async void InitializeSignalRAsync()
+        {
+            try
+            {
+                _hubConnection = new HubConnectionBuilder()
+                    .WithUrl("http://localhost:5268/flightHub")
+                    .WithAutomaticReconnect()
+                    .Build();
+
+                _hubConnection.Reconnecting += error =>
+                {
+                    this.Invoke(() => {
+                        _flightInfoLabel.Text = "Сүлжээний холболт тасарлаа. Дахин холбогдож байна...";
+                    });
+                    return Task.CompletedTask;
+                };
+
+                _hubConnection.Reconnected += connectionId =>
+                {
+                    this.Invoke(() => {
+                        _flightInfoLabel.Text = "Сүлжээний холболт сэргээгдлээ.";
+                    });
+                    return Task.CompletedTask;
+                };
+
+                await _hubConnection.StartAsync();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"SignalR холболт амжилтгүй: {ex.Message}\nПрограм SignalR холболтгүйгээр ажиллах болно.", 
+                    "Анхааруулга", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void InitializeComponents()
@@ -236,6 +273,15 @@ namespace Airport.CheckInApp.Forms
             catch (Exception ex)
             {
                 MessageBox.Show($"Алдаа гарлаа: {ex.Message}");
+            }
+        }
+
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            base.OnFormClosing(e);
+            if (_hubConnection != null)
+            {
+                _ = _hubConnection.DisposeAsync();
             }
         }
     }
