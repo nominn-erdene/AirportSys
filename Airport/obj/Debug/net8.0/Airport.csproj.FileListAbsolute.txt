@@ -1,0 +1,14 @@
+C:\Users\HP\Documents\win\Airport\Airport\bin\Debug\net8.0\Airport.deps.json
+C:\Users\HP\Documents\win\Airport\Airport\bin\Debug\net8.0\Airport.runtimeconfig.json
+C:\Users\HP\Documents\win\Airport\Airport\bin\Debug\net8.0\Airport.dll
+C:\Users\HP\Documents\win\Airport\Airport\bin\Debug\net8.0\Airport.pdb
+C:\Users\HP\Documents\win\Airport\Airport\obj\Debug\net8.0\Airport.csproj.AssemblyReference.cache
+C:\Users\HP\Documents\win\Airport\Airport\obj\Debug\net8.0\Airport.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\HP\Documents\win\Airport\Airport\obj\Debug\net8.0\Airport.AssemblyInfoInputs.cache
+C:\Users\HP\Documents\win\Airport\Airport\obj\Debug\net8.0\Airport.AssemblyInfo.cs
+C:\Users\HP\Documents\win\Airport\Airport\obj\Debug\net8.0\Airport.csproj.CoreCompileInputs.cache
+C:\Users\HP\Documents\win\Airport\Airport\obj\Debug\net8.0\Airport.dll
+C:\Users\HP\Documents\win\Airport\Airport\obj\Debug\net8.0\refint\Airport.dll
+C:\Users\HP\Documents\win\Airport\Airport\obj\Debug\net8.0\Airport.pdb
+C:\Users\HP\Documents\win\Airport\Airport\obj\Debug\net8.0\Airport.genruntimeconfig.cache
+C:\Users\HP\Documents\win\Airport\Airport\obj\Debug\net8.0\ref\Airport.dll

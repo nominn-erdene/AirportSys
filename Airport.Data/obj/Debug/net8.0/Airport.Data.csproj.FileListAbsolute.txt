@@ -1,0 +1,17 @@
+C:\Users\HP\Documents\win\Airport\Airport.Data\obj\Debug\net8.0\Airport.Data.csproj.AssemblyReference.cache
+C:\Users\HP\Documents\win\Airport\Airport.Data\obj\Debug\net8.0\Airport.Data.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\HP\Documents\win\Airport\Airport.Data\obj\Debug\net8.0\Airport.Data.AssemblyInfoInputs.cache
+C:\Users\HP\Documents\win\Airport\Airport.Data\obj\Debug\net8.0\Airport.Data.AssemblyInfo.cs
+C:\Users\HP\Documents\win\Airport\Airport.Data\obj\Debug\net8.0\Airport.Data.csproj.CoreCompileInputs.cache
+C:\Users\HP\Documents\win\Airport\Airport.Data\bin\Debug\net8.0\Airport.Data.deps.json
+C:\Users\HP\Documents\win\Airport\Airport.Data\bin\Debug\net8.0\Airport.Data.dll
+C:\Users\HP\Documents\win\Airport\Airport.Data\bin\Debug\net8.0\Airport.Data.pdb
+C:\Users\HP\Documents\win\Airport\Airport.Data\bin\Debug\net8.0\Airport.Core.dll
+C:\Users\HP\Documents\win\Airport\Airport.Data\bin\Debug\net8.0\Airport.Core.pdb
+C:\Users\HP\Documents\win\Airport\Airport.Data\obj\Debug\net8.0\Airport..27DE9892.Up2Date
+C:\Users\HP\Documents\win\Airport\Airport.Data\obj\Debug\net8.0\Airport.Data.dll
+C:\Users\HP\Documents\win\Airport\Airport.Data\obj\Debug\net8.0\refint\Airport.Data.dll
+C:\Users\HP\Documents\win\Airport\Airport.Data\obj\Debug\net8.0\Airport.Data.pdb
+C:\Users\HP\Documents\win\Airport\Airport.Data\obj\Debug\net8.0\ref\Airport.Data.dll
+C:\Users\HP\Documents\win\Airport\Airport.Data\bin\Debug\net8.0\Airport.Data.runtimeconfig.json
+C:\Users\HP\Documents\win\Airport\Airport.Data\obj\Debug\net8.0\Airport.Data.genruntimeconfig.cache

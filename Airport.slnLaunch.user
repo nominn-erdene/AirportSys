@@ -1,0 +1,19 @@
+[
+  {
+    "Name": "New Profile",
+    "Projects": [
+      {
+        "Path": "Airport.CheckInApp\\Airport.CheckInApp.csproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "Airport.DisplayApp\\Airport.DisplayApp.csproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "Airport.Server\\Airport.Server.csproj",
+        "Action": "Start"
+      }
+    ]
+  }
+]

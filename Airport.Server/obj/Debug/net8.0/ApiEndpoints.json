@@ -1,0 +1,212 @@
+[
+  {
+    "ContainingType": "Airport.Server.Controllers.FlightsController",
+    "Method": "GetAllFlights",
+    "RelativePath": "api/Flights",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Airport.Server.Controllers.FlightsController",
+    "Method": "GetAvailableSeats",
+    "RelativePath": "api/Flights/{flightId}/seats",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "flightId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Airport.Server.Controllers.FlightsController",
+    "Method": "AssignSeat",
+    "RelativePath": "api/Flights/{flightId}/seats/{seatNumber}/assign",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "flightId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "seatNumber",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "passportNumber",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Airport.Server.Controllers.FlightsController",
+    "Method": "CheckSeatAvailability",
+    "RelativePath": "api/Flights/{flightId}/seats/{seatNumber}/availability",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "flightId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "seatNumber",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Airport.Server.Controllers.FlightsController",
+    "Method": "UpdateFlightStatus",
+    "RelativePath": "api/Flights/{flightId}/status",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "flightId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "newStatus",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Airport.Server.Controllers.FlightsController",
+    "Method": "GetFlight",
+    "RelativePath": "api/Flights/{flightNumber}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "flightNumber",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Airport.Server.Controllers.PassengersController",
+    "Method": "GetPassenger",
+    "RelativePath": "api/Passengers/{passportNumber}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "passportNumber",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Airport.Server.Controllers.PassengersController",
+    "Method": "GenerateBoardingPass",
+    "RelativePath": "api/Passengers/{passportNumber}/boardingpass",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "passportNumber",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "flightId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Airport.Server.Controllers.PassengersController",
+    "Method": "CheckIn",
+    "RelativePath": "api/Passengers/{passportNumber}/checkin",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "passportNumber",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "request",
+        "Type": "Airport.Server.Controllers.CheckInRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Airport.Server.Controllers.PassengersController",
+    "Method": "GetPassengerSeat",
+    "RelativePath": "api/Passengers/{passportNumber}/seat",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "passportNumber",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "flightId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Airport.Server.Controllers.WeatherForecastController",
+    "Method": "Get",
+    "RelativePath": "WeatherForecast",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[Airport.Server.WeatherForecast, Airport.Server, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ],
+    "EndpointName": "GetWeatherForecast"
+  }
+]

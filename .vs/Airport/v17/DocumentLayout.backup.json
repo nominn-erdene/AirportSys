@@ -1,0 +1,427 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\HP\\Documents\\win\\Airport\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{0B7FE417-7A5D-4E7A-A23A-B5992100365B}|Airport.CheckInApp\\Airport.CheckInApp.csproj|c:\\users\\hp\\documents\\win\\airport\\airport.checkinapp\\forms\\checkinform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{0B7FE417-7A5D-4E7A-A23A-B5992100365B}|Airport.CheckInApp\\Airport.CheckInApp.csproj|solutionrelative:airport.checkinapp\\forms\\checkinform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{05BD3F71-ACC0-47A9-8778-62AF23844918}|Airport.Web\\Airport.Web.csproj|c:\\users\\hp\\documents\\win\\airport\\airport.web\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{05BD3F71-ACC0-47A9-8778-62AF23844918}|Airport.Web\\Airport.Web.csproj|solutionrelative:airport.web\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{463ED48D-6290-4E09-ABC0-E0C1EDBBF595}|Airport.Server\\Airport.Server.csproj|c:\\users\\hp\\documents\\win\\airport\\airport.server\\airport.server.csproj.backup.tmp||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{463ED48D-6290-4E09-ABC0-E0C1EDBBF595}|Airport.Server\\Airport.Server.csproj|solutionrelative:airport.server\\airport.server.csproj.backup.tmp||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{463ED48D-6290-4E09-ABC0-E0C1EDBBF595}|Airport.Server\\Airport.Server.csproj|c:\\users\\hp\\documents\\win\\airport\\airport.server\\services\\socketserver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{463ED48D-6290-4E09-ABC0-E0C1EDBBF595}|Airport.Server\\Airport.Server.csproj|solutionrelative:airport.server\\services\\socketserver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{463ED48D-6290-4E09-ABC0-E0C1EDBBF595}|Airport.Server\\Airport.Server.csproj|c:\\users\\hp\\documents\\win\\airport\\airport.server\\services\\passengerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{463ED48D-6290-4E09-ABC0-E0C1EDBBF595}|Airport.Server\\Airport.Server.csproj|solutionrelative:airport.server\\services\\passengerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{463ED48D-6290-4E09-ABC0-E0C1EDBBF595}|Airport.Server\\Airport.Server.csproj|c:\\users\\hp\\documents\\win\\airport\\airport.server\\services\\flightservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{463ED48D-6290-4E09-ABC0-E0C1EDBBF595}|Airport.Server\\Airport.Server.csproj|solutionrelative:airport.server\\services\\flightservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{463ED48D-6290-4E09-ABC0-E0C1EDBBF595}|Airport.Server\\Airport.Server.csproj|c:\\users\\hp\\documents\\win\\airport\\airport.server\\hubs\\flighthub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{463ED48D-6290-4E09-ABC0-E0C1EDBBF595}|Airport.Server\\Airport.Server.csproj|solutionrelative:airport.server\\hubs\\flighthub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{463ED48D-6290-4E09-ABC0-E0C1EDBBF595}|Airport.Server\\Airport.Server.csproj|c:\\users\\hp\\documents\\win\\airport\\airport.server\\controllers\\weatherforecastcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{463ED48D-6290-4E09-ABC0-E0C1EDBBF595}|Airport.Server\\Airport.Server.csproj|solutionrelative:airport.server\\controllers\\weatherforecastcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{463ED48D-6290-4E09-ABC0-E0C1EDBBF595}|Airport.Server\\Airport.Server.csproj|c:\\users\\hp\\documents\\win\\airport\\airport.server\\controllers\\passengerscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{463ED48D-6290-4E09-ABC0-E0C1EDBBF595}|Airport.Server\\Airport.Server.csproj|solutionrelative:airport.server\\controllers\\passengerscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{463ED48D-6290-4E09-ABC0-E0C1EDBBF595}|Airport.Server\\Airport.Server.csproj|c:\\users\\hp\\documents\\win\\airport\\airport.server\\controllers\\flightscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{463ED48D-6290-4E09-ABC0-E0C1EDBBF595}|Airport.Server\\Airport.Server.csproj|solutionrelative:airport.server\\controllers\\flightscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{463ED48D-6290-4E09-ABC0-E0C1EDBBF595}|Airport.Server\\Airport.Server.csproj|c:\\users\\hp\\documents\\win\\airport\\airport.server\\weatherforecast.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{463ED48D-6290-4E09-ABC0-E0C1EDBBF595}|Airport.Server\\Airport.Server.csproj|solutionrelative:airport.server\\weatherforecast.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{463ED48D-6290-4E09-ABC0-E0C1EDBBF595}|Airport.Server\\Airport.Server.csproj|c:\\users\\hp\\documents\\win\\airport\\airport.server\\startup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{463ED48D-6290-4E09-ABC0-E0C1EDBBF595}|Airport.Server\\Airport.Server.csproj|solutionrelative:airport.server\\startup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{463ED48D-6290-4E09-ABC0-E0C1EDBBF595}|Airport.Server\\Airport.Server.csproj|c:\\users\\hp\\documents\\win\\airport\\airport.server\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{463ED48D-6290-4E09-ABC0-E0C1EDBBF595}|Airport.Server\\Airport.Server.csproj|solutionrelative:airport.server\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2311E240-9E0C-4FFD-A6E1-D1D7A56629CF}|Airport.Data\\Airport.Data.csproj|c:\\users\\hp\\documents\\win\\airport\\airport.data\\airportdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2311E240-9E0C-4FFD-A6E1-D1D7A56629CF}|Airport.Data\\Airport.Data.csproj|solutionrelative:airport.data\\airportdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2311E240-9E0C-4FFD-A6E1-D1D7A56629CF}|Airport.Data\\Airport.Data.csproj|c:\\users\\hp\\documents\\win\\airport\\airport.data\\repositories\\repository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2311E240-9E0C-4FFD-A6E1-D1D7A56629CF}|Airport.Data\\Airport.Data.csproj|solutionrelative:airport.data\\repositories\\repository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2311E240-9E0C-4FFD-A6E1-D1D7A56629CF}|Airport.Data\\Airport.Data.csproj|c:\\users\\hp\\documents\\win\\airport\\airport.data\\interfaces\\irepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2311E240-9E0C-4FFD-A6E1-D1D7A56629CF}|Airport.Data\\Airport.Data.csproj|solutionrelative:airport.data\\interfaces\\irepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{606CEB6D-FF68-4A42-A71B-84A047397BC9}|Airport.Core\\Airport.Core.csproj|c:\\users\\hp\\documents\\win\\airport\\airport.core\\models\\seat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{606CEB6D-FF68-4A42-A71B-84A047397BC9}|Airport.Core\\Airport.Core.csproj|solutionrelative:airport.core\\models\\seat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{606CEB6D-FF68-4A42-A71B-84A047397BC9}|Airport.Core\\Airport.Core.csproj|c:\\users\\hp\\documents\\win\\airport\\airport.core\\models\\passenger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{606CEB6D-FF68-4A42-A71B-84A047397BC9}|Airport.Core\\Airport.Core.csproj|solutionrelative:airport.core\\models\\passenger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{606CEB6D-FF68-4A42-A71B-84A047397BC9}|Airport.Core\\Airport.Core.csproj|c:\\users\\hp\\documents\\win\\airport\\airport.core\\models\\flight.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{606CEB6D-FF68-4A42-A71B-84A047397BC9}|Airport.Core\\Airport.Core.csproj|solutionrelative:airport.core\\models\\flight.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{606CEB6D-FF68-4A42-A71B-84A047397BC9}|Airport.Core\\Airport.Core.csproj|c:\\users\\hp\\documents\\win\\airport\\airport.core\\models\\boardingpass.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{606CEB6D-FF68-4A42-A71B-84A047397BC9}|Airport.Core\\Airport.Core.csproj|solutionrelative:airport.core\\models\\boardingpass.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{606CEB6D-FF68-4A42-A71B-84A047397BC9}|Airport.Core\\Airport.Core.csproj|c:\\users\\hp\\documents\\win\\airport\\airport.core\\interfaces\\ipassengerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{606CEB6D-FF68-4A42-A71B-84A047397BC9}|Airport.Core\\Airport.Core.csproj|solutionrelative:airport.core\\interfaces\\ipassengerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{606CEB6D-FF68-4A42-A71B-84A047397BC9}|Airport.Core\\Airport.Core.csproj|c:\\users\\hp\\documents\\win\\airport\\airport.core\\interfaces\\iflightservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{606CEB6D-FF68-4A42-A71B-84A047397BC9}|Airport.Core\\Airport.Core.csproj|solutionrelative:airport.core\\interfaces\\iflightservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{606CEB6D-FF68-4A42-A71B-84A047397BC9}|Airport.Core\\Airport.Core.csproj|c:\\users\\hp\\documents\\win\\airport\\airport.core\\interfaces\\iflightnotificationhub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{606CEB6D-FF68-4A42-A71B-84A047397BC9}|Airport.Core\\Airport.Core.csproj|solutionrelative:airport.core\\interfaces\\iflightnotificationhub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0B7FE417-7A5D-4E7A-A23A-B5992100365B}|Airport.CheckInApp\\Airport.CheckInApp.csproj|c:\\users\\hp\\documents\\win\\airport\\airport.checkinapp\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0B7FE417-7A5D-4E7A-A23A-B5992100365B}|Airport.CheckInApp\\Airport.CheckInApp.csproj|solutionrelative:airport.checkinapp\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "CheckInForm.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\HP\\Documents\\win\\Airport\\Airport.CheckInApp\\Forms\\CheckInForm.cs",
+              "RelativeDocumentMoniker": "Airport.CheckInApp\\Forms\\CheckInForm.cs",
+              "ToolTip": "C:\\Users\\HP\\Documents\\win\\Airport\\Airport.CheckInApp\\Forms\\CheckInForm.cs [Design]",
+              "RelativeToolTip": "Airport.CheckInApp\\Forms\\CheckInForm.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-15T04:30:06.913Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\HP\\Documents\\win\\Airport\\Airport.Web\\Program.cs",
+              "RelativeDocumentMoniker": "Airport.Web\\Program.cs",
+              "ToolTip": "C:\\Users\\HP\\Documents\\win\\Airport\\Airport.Web\\Program.cs",
+              "RelativeToolTip": "Airport.Web\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-15T04:24:00.949Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Airport.Server.csproj.Backup.tmp",
+              "DocumentMoniker": "C:\\Users\\HP\\Documents\\win\\Airport\\Airport.Server\\Airport.Server.csproj.Backup.tmp",
+              "RelativeDocumentMoniker": "Airport.Server\\Airport.Server.csproj.Backup.tmp",
+              "ToolTip": "C:\\Users\\HP\\Documents\\win\\Airport\\Airport.Server\\Airport.Server.csproj.Backup.tmp",
+              "RelativeToolTip": "Airport.Server\\Airport.Server.csproj.Backup.tmp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-05-15T04:23:53.896Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "SocketServer.cs",
+              "DocumentMoniker": "C:\\Users\\HP\\Documents\\win\\Airport\\Airport.Server\\Services\\SocketServer.cs",
+              "RelativeDocumentMoniker": "Airport.Server\\Services\\SocketServer.cs",
+              "ToolTip": "C:\\Users\\HP\\Documents\\win\\Airport\\Airport.Server\\Services\\SocketServer.cs",
+              "RelativeToolTip": "Airport.Server\\Services\\SocketServer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-15T04:23:50.967Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "PassengerService.cs",
+              "DocumentMoniker": "C:\\Users\\HP\\Documents\\win\\Airport\\Airport.Server\\Services\\PassengerService.cs",
+              "RelativeDocumentMoniker": "Airport.Server\\Services\\PassengerService.cs",
+              "ToolTip": "C:\\Users\\HP\\Documents\\win\\Airport\\Airport.Server\\Services\\PassengerService.cs",
+              "RelativeToolTip": "Airport.Server\\Services\\PassengerService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-15T04:23:48.971Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "FlightService.cs",
+              "DocumentMoniker": "C:\\Users\\HP\\Documents\\win\\Airport\\Airport.Server\\Services\\FlightService.cs",
+              "RelativeDocumentMoniker": "Airport.Server\\Services\\FlightService.cs",
+              "ToolTip": "C:\\Users\\HP\\Documents\\win\\Airport\\Airport.Server\\Services\\FlightService.cs",
+              "RelativeToolTip": "Airport.Server\\Services\\FlightService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-15T04:23:47.287Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "FlightHub.cs",
+              "DocumentMoniker": "C:\\Users\\HP\\Documents\\win\\Airport\\Airport.Server\\Hubs\\FlightHub.cs",
+              "RelativeDocumentMoniker": "Airport.Server\\Hubs\\FlightHub.cs",
+              "ToolTip": "C:\\Users\\HP\\Documents\\win\\Airport\\Airport.Server\\Hubs\\FlightHub.cs",
+              "RelativeToolTip": "Airport.Server\\Hubs\\FlightHub.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-15T04:23:45.295Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "WeatherForecastController.cs",
+              "DocumentMoniker": "C:\\Users\\HP\\Documents\\win\\Airport\\Airport.Server\\Controllers\\WeatherForecastController.cs",
+              "RelativeDocumentMoniker": "Airport.Server\\Controllers\\WeatherForecastController.cs",
+              "ToolTip": "C:\\Users\\HP\\Documents\\win\\Airport\\Airport.Server\\Controllers\\WeatherForecastController.cs",
+              "RelativeToolTip": "Airport.Server\\Controllers\\WeatherForecastController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-15T04:23:43.405Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "PassengersController.cs",
+              "DocumentMoniker": "C:\\Users\\HP\\Documents\\win\\Airport\\Airport.Server\\Controllers\\PassengersController.cs",
+              "RelativeDocumentMoniker": "Airport.Server\\Controllers\\PassengersController.cs",
+              "ToolTip": "C:\\Users\\HP\\Documents\\win\\Airport\\Airport.Server\\Controllers\\PassengersController.cs",
+              "RelativeToolTip": "Airport.Server\\Controllers\\PassengersController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-15T04:23:41.873Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "FlightsController.cs",
+              "DocumentMoniker": "C:\\Users\\HP\\Documents\\win\\Airport\\Airport.Server\\Controllers\\FlightsController.cs",
+              "RelativeDocumentMoniker": "Airport.Server\\Controllers\\FlightsController.cs",
+              "ToolTip": "C:\\Users\\HP\\Documents\\win\\Airport\\Airport.Server\\Controllers\\FlightsController.cs",
+              "RelativeToolTip": "Airport.Server\\Controllers\\FlightsController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-15T04:23:40.169Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "Repository.cs",
+              "DocumentMoniker": "C:\\Users\\HP\\Documents\\win\\Airport\\Airport.Data\\Repositories\\Repository.cs",
+              "RelativeDocumentMoniker": "Airport.Data\\Repositories\\Repository.cs",
+              "ToolTip": "C:\\Users\\HP\\Documents\\win\\Airport\\Airport.Data\\Repositories\\Repository.cs",
+              "RelativeToolTip": "Airport.Data\\Repositories\\Repository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-15T04:22:02.382Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "IRepository.cs",
+              "DocumentMoniker": "C:\\Users\\HP\\Documents\\win\\Airport\\Airport.Data\\Interfaces\\IRepository.cs",
+              "RelativeDocumentMoniker": "Airport.Data\\Interfaces\\IRepository.cs",
+              "ToolTip": "C:\\Users\\HP\\Documents\\win\\Airport\\Airport.Data\\Interfaces\\IRepository.cs",
+              "RelativeToolTip": "Airport.Data\\Interfaces\\IRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-15T04:22:00.072Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "AirportDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\HP\\Documents\\win\\Airport\\Airport.Data\\AirportDbContext.cs",
+              "RelativeDocumentMoniker": "Airport.Data\\AirportDbContext.cs",
+              "ToolTip": "C:\\Users\\HP\\Documents\\win\\Airport\\Airport.Data\\AirportDbContext.cs",
+              "RelativeToolTip": "Airport.Data\\AirportDbContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-15T04:21:57.181Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "Seat.cs",
+              "DocumentMoniker": "C:\\Users\\HP\\Documents\\win\\Airport\\Airport.Core\\Models\\Seat.cs",
+              "RelativeDocumentMoniker": "Airport.Core\\Models\\Seat.cs",
+              "ToolTip": "C:\\Users\\HP\\Documents\\win\\Airport\\Airport.Core\\Models\\Seat.cs",
+              "RelativeToolTip": "Airport.Core\\Models\\Seat.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-15T04:21:53.642Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Startup.cs",
+              "DocumentMoniker": "C:\\Users\\HP\\Documents\\win\\Airport\\Airport.Server\\Startup.cs",
+              "RelativeDocumentMoniker": "Airport.Server\\Startup.cs",
+              "ToolTip": "C:\\Users\\HP\\Documents\\win\\Airport\\Airport.Server\\Startup.cs",
+              "RelativeToolTip": "Airport.Server\\Startup.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-15T04:18:19.009Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\HP\\Documents\\win\\Airport\\Airport.Server\\Program.cs",
+              "RelativeDocumentMoniker": "Airport.Server\\Program.cs",
+              "ToolTip": "C:\\Users\\HP\\Documents\\win\\Airport\\Airport.Server\\Program.cs",
+              "RelativeToolTip": "Airport.Server\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-15T04:18:42.128Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "WeatherForecast.cs",
+              "DocumentMoniker": "C:\\Users\\HP\\Documents\\win\\Airport\\Airport.Server\\WeatherForecast.cs",
+              "RelativeDocumentMoniker": "Airport.Server\\WeatherForecast.cs",
+              "ToolTip": "C:\\Users\\HP\\Documents\\win\\Airport\\Airport.Server\\WeatherForecast.cs",
+              "RelativeToolTip": "Airport.Server\\WeatherForecast.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-15T04:18:40.35Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "Passenger.cs",
+              "DocumentMoniker": "C:\\Users\\HP\\Documents\\win\\Airport\\Airport.Core\\Models\\Passenger.cs",
+              "RelativeDocumentMoniker": "Airport.Core\\Models\\Passenger.cs",
+              "ToolTip": "C:\\Users\\HP\\Documents\\win\\Airport\\Airport.Core\\Models\\Passenger.cs",
+              "RelativeToolTip": "Airport.Core\\Models\\Passenger.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-15T04:21:52.095Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "Flight.cs",
+              "DocumentMoniker": "C:\\Users\\HP\\Documents\\win\\Airport\\Airport.Core\\Models\\Flight.cs",
+              "RelativeDocumentMoniker": "Airport.Core\\Models\\Flight.cs",
+              "ToolTip": "C:\\Users\\HP\\Documents\\win\\Airport\\Airport.Core\\Models\\Flight.cs",
+              "RelativeToolTip": "Airport.Core\\Models\\Flight.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-15T04:21:51.103Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "BoardingPass.cs",
+              "DocumentMoniker": "C:\\Users\\HP\\Documents\\win\\Airport\\Airport.Core\\Models\\BoardingPass.cs",
+              "RelativeDocumentMoniker": "Airport.Core\\Models\\BoardingPass.cs",
+              "ToolTip": "C:\\Users\\HP\\Documents\\win\\Airport\\Airport.Core\\Models\\BoardingPass.cs",
+              "RelativeToolTip": "Airport.Core\\Models\\BoardingPass.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-15T04:21:49.808Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "IPassengerService.cs",
+              "DocumentMoniker": "C:\\Users\\HP\\Documents\\win\\Airport\\Airport.Core\\Interfaces\\IPassengerService.cs",
+              "RelativeDocumentMoniker": "Airport.Core\\Interfaces\\IPassengerService.cs",
+              "ToolTip": "C:\\Users\\HP\\Documents\\win\\Airport\\Airport.Core\\Interfaces\\IPassengerService.cs",
+              "RelativeToolTip": "Airport.Core\\Interfaces\\IPassengerService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-15T04:21:46.642Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "IFlightService.cs",
+              "DocumentMoniker": "C:\\Users\\HP\\Documents\\win\\Airport\\Airport.Core\\Interfaces\\IFlightService.cs",
+              "RelativeDocumentMoniker": "Airport.Core\\Interfaces\\IFlightService.cs",
+              "ToolTip": "C:\\Users\\HP\\Documents\\win\\Airport\\Airport.Core\\Interfaces\\IFlightService.cs",
+              "RelativeToolTip": "Airport.Core\\Interfaces\\IFlightService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-15T04:21:45.743Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "IFlightNotificationHub.cs",
+              "DocumentMoniker": "C:\\Users\\HP\\Documents\\win\\Airport\\Airport.Core\\Interfaces\\IFlightNotificationHub.cs",
+              "RelativeDocumentMoniker": "Airport.Core\\Interfaces\\IFlightNotificationHub.cs",
+              "ToolTip": "C:\\Users\\HP\\Documents\\win\\Airport\\Airport.Core\\Interfaces\\IFlightNotificationHub.cs",
+              "RelativeToolTip": "Airport.Core\\Interfaces\\IFlightNotificationHub.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-15T04:21:43.971Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "Form1.cs",
+              "DocumentMoniker": "C:\\Users\\HP\\Documents\\win\\Airport\\Airport.CheckInApp\\Form1.cs",
+              "RelativeDocumentMoniker": "Airport.CheckInApp\\Form1.cs",
+              "ToolTip": "C:\\Users\\HP\\Documents\\win\\Airport\\Airport.CheckInApp\\Form1.cs",
+              "RelativeToolTip": "Airport.CheckInApp\\Form1.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-15T04:21:36.947Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
