@@ -3,6 +3,7 @@ using System;
 using Airport.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Airport.Data.Migrations
 {
     [DbContext(typeof(AirportDbContext))]
-    partial class AirportDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250516093134_AddBaggageModel")]
+    partial class AddBaggageModel
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "9.0.5");
@@ -1653,7 +1656,7 @@ namespace Airport.Data.Migrations
                     b.HasOne("Airport.Core.Models.Flight", "Flight")
                         .WithMany()
                         .HasForeignKey("FlightId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("Airport.Core.Models.Passenger", "Passenger")
@@ -1698,13 +1701,12 @@ namespace Airport.Data.Migrations
                 {
                     b.HasOne("Airport.Core.Models.Flight", "Flight")
                         .WithMany()
-                        .HasForeignKey("FlightId")
-                        .OnDelete(DeleteBehavior.SetNull);
+                        .HasForeignKey("FlightId");
 
                     b.HasOne("Airport.Core.Models.Seat", "AssignedSeat")
                         .WithOne("Passenger")
                         .HasForeignKey("Airport.Core.Models.Passenger", "Id")
-                        .OnDelete(DeleteBehavior.SetNull)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("AssignedSeat");

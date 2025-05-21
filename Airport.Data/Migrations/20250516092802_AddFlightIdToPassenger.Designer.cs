@@ -3,6 +3,7 @@ using System;
 using Airport.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,43 +11,14 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Airport.Data.Migrations
 {
     [DbContext(typeof(AirportDbContext))]
-    partial class AirportDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250516092802_AddFlightIdToPassenger")]
+    partial class AddFlightIdToPassenger
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "9.0.5");
-
-            modelBuilder.Entity("Airport.Core.Models.Baggage", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<string>("BarcodeNumber")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<DateTime>("CheckInTime")
-                        .HasColumnType("TEXT");
-
-                    b.Property<int>("FlightId")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("PassengerId")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<double>("Weight")
-                        .HasColumnType("REAL");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("FlightId");
-
-                    b.HasIndex("PassengerId");
-
-                    b.ToTable("Baggages");
-                });
 
             modelBuilder.Entity("Airport.Core.Models.BoardingPass", b =>
                 {
@@ -1648,25 +1620,6 @@ namespace Airport.Data.Migrations
                         });
                 });
 
-            modelBuilder.Entity("Airport.Core.Models.Baggage", b =>
-                {
-                    b.HasOne("Airport.Core.Models.Flight", "Flight")
-                        .WithMany()
-                        .HasForeignKey("FlightId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Airport.Core.Models.Passenger", "Passenger")
-                        .WithMany()
-                        .HasForeignKey("PassengerId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.Navigation("Flight");
-
-                    b.Navigation("Passenger");
-                });
-
             modelBuilder.Entity("Airport.Core.Models.BoardingPass", b =>
                 {
                     b.HasOne("Airport.Core.Models.Flight", "Flight")
@@ -1698,13 +1651,12 @@ namespace Airport.Data.Migrations
                 {
                     b.HasOne("Airport.Core.Models.Flight", "Flight")
                         .WithMany()
-                        .HasForeignKey("FlightId")
-                        .OnDelete(DeleteBehavior.SetNull);
+                        .HasForeignKey("FlightId");
 
                     b.HasOne("Airport.Core.Models.Seat", "AssignedSeat")
                         .WithOne("Passenger")
                         .HasForeignKey("Airport.Core.Models.Passenger", "Id")
-                        .OnDelete(DeleteBehavior.SetNull)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("AssignedSeat");

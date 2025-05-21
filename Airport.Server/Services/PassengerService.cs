@@ -5,6 +5,7 @@ using Airport.Core.Models;
 using Airport.Core.Interfaces;
 using Airport.Data.Interfaces;
 using Airport.Data.Repositories;
+using Microsoft.Extensions.Logging;
 
 namespace Airport.Server.Services
 {
@@ -16,6 +17,7 @@ namespace Airport.Server.Services
         private readonly IRepository<BoardingPass> _boardingPassRepository;
         private readonly IFlightService _flightService;
         private readonly IFlightNotificationHub _notificationHub;
+        private readonly ILogger<PassengerService> _logger;
 
         public PassengerService(
             IRepository<Passenger> passengerRepository,
@@ -23,7 +25,8 @@ namespace Airport.Server.Services
             IRepository<Seat> seatRepository,
             IRepository<BoardingPass> boardingPassRepository,
             IFlightService flightService,
-            IFlightNotificationHub notificationHub)
+            IFlightNotificationHub notificationHub,
+            ILogger<PassengerService> logger)
         {
             _passengerRepository = passengerRepository;
             _flightRepository = flightRepository;
@@ -31,11 +34,30 @@ namespace Airport.Server.Services
             _boardingPassRepository = boardingPassRepository;
             _flightService = flightService;
             _notificationHub = notificationHub;
+            _logger = logger;
         }
 
         public async Task<Passenger> GetPassengerByPassportNumber(string passportNumber)
         {
-            return await _passengerRepository.GetAsync(p => p.PassportNumber == passportNumber);
+            try
+            {
+                _logger.LogInformation($"Attempting to find passenger with passport number: {passportNumber}");
+                var passenger = await _passengerRepository.GetAsync(p => p.PassportNumber == passportNumber);
+                
+                if (passenger == null)
+                {
+                    _logger.LogWarning($"No passenger found with passport number: {passportNumber}");
+                    return null;
+                }
+
+                _logger.LogInformation($"Found passenger: {passenger.Name}, Flight: {passenger.Flight?.FlightNumber}, Seat: {passenger.AssignedSeat?.SeatNumber}");
+                return passenger;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, $"Error occurred while searching for passenger with passport number: {passportNumber}");
+                throw; // Re-throw to let the controller handle it
+            }
         }
 
         public async Task<BoardingPass> CheckInPassenger(int flightId, string passportNumber, string seatNumber)

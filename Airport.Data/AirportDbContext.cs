@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Design;
 using Airport.Core.Models;
 using System;
 using System.Collections.Generic;
@@ -16,6 +17,7 @@ namespace Airport.Data
         public DbSet<Passenger> Passengers { get; set; }
         public DbSet<Seat> Seats { get; set; }
         public DbSet<BoardingPass> BoardingPasses { get; set; }
+        public DbSet<Baggage> Baggages { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -24,13 +26,23 @@ namespace Airport.Data
             modelBuilder.Entity<Flight>()
                 .HasMany(f => f.Seats)
                 .WithOne(s => s.Flight)
-                .HasForeignKey(s => s.FlightId);
+                .HasForeignKey(s => s.FlightId)
+                .OnDelete(DeleteBehavior.Cascade);
 
             modelBuilder.Entity<Seat>()
                 .HasOne(s => s.Passenger)
                 .WithOne(p => p.AssignedSeat)
-                .HasForeignKey<Passenger>();
+                .HasForeignKey<Passenger>(p => p.Id)
+                .OnDelete(DeleteBehavior.SetNull);
 
+            // Configure relationship between Passenger and Flight
+            modelBuilder.Entity<Passenger>()
+                .HasOne(p => p.Flight)
+                .WithMany()
+                .HasForeignKey(p => p.FlightId)
+                .OnDelete(DeleteBehavior.SetNull);
+
+            // Configure required properties
             modelBuilder.Entity<Flight>()
                 .Property(f => f.FlightNumber)
                 .IsRequired();
@@ -42,6 +54,12 @@ namespace Airport.Data
             modelBuilder.Entity<Seat>()
                 .Property(s => s.SeatNumber)
                 .IsRequired();
+
+            // Configure Baggage relationships
+            modelBuilder.Entity<Baggage>()
+                .HasOne(b => b.Passenger)
+                .WithMany()
+                .OnDelete(DeleteBehavior.Restrict);
 
             // Sample data
             modelBuilder.Entity<Flight>().HasData(
@@ -65,7 +83,8 @@ namespace Airport.Data
                     FirstName = "Бат",
                     LastName = "Болд",
                     DateOfBirth = new DateTime(1990, 1, 1),
-                    Nationality = "Монгол"
+                    Nationality = "Монгол",
+                    FlightId = 1 // Assign the passenger to the sample flight
                 }
             );
 
@@ -85,6 +104,17 @@ namespace Airport.Data
                 }
             }
             modelBuilder.Entity<Seat>().HasData(seats);
+        }
+    }
+
+    public class AirportDbContextFactory : IDesignTimeDbContextFactory<AirportDbContext>
+    {
+        public AirportDbContext CreateDbContext(string[] args)
+        {
+            var optionsBuilder = new DbContextOptionsBuilder<AirportDbContext>();
+            optionsBuilder.UseSqlite("Data Source=Airport.db");
+
+            return new AirportDbContext(optionsBuilder.Options);
         }
     }
 } 

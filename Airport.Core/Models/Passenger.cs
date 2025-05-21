@@ -43,5 +43,11 @@ namespace Airport.Core.Models
         
         public DateTime DateOfBirth { get; set; }
         public virtual Seat? AssignedSeat { get; set; }
+
+        // Нислэгийн ID
+        public int? FlightId { get; set; }
+        
+        // Нислэгийн мэдээлэл
+        public virtual Flight? Flight { get; set; }
     }
 } 

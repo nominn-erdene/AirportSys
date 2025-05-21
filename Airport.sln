@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.12.35707.178 d17.12
+VisualStudioVersion = 17.12.35707.178
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Airport", "Airport\Airport.csproj", "{92B20070-46A8-4BAE-8B90-6F3266DC14FB}"
 EndProject
@@ -10,8 +10,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Airport.Data", "Airport.Data\Airport.Data.csproj", "{2311E240-9E0C-4FFD-A6E1-D1D7A56629CF}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Airport.CheckInApp", "Airport.CheckInApp\Airport.CheckInApp.csproj", "{0B7FE417-7A5D-4E7A-A23A-B5992100365B}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Airport.DisplayApp", "Airport.DisplayApp\Airport.DisplayApp.csproj", "{ED9A0981-1B3B-4ECB-A995-3BF604869B3F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Airport.Server", "Airport.Server\Airport.Server.csproj", "{463ED48D-6290-4E09-ABC0-E0C1EDBBF595}"
 EndProject
@@ -43,10 +41,6 @@ Global
 		{0B7FE417-7A5D-4E7A-A23A-B5992100365B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0B7FE417-7A5D-4E7A-A23A-B5992100365B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0B7FE417-7A5D-4E7A-A23A-B5992100365B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{ED9A0981-1B3B-4ECB-A995-3BF604869B3F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{ED9A0981-1B3B-4ECB-A995-3BF604869B3F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{ED9A0981-1B3B-4ECB-A995-3BF604869B3F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{ED9A0981-1B3B-4ECB-A995-3BF604869B3F}.Release|Any CPU.Build.0 = Release|Any CPU
 		{463ED48D-6290-4E09-ABC0-E0C1EDBBF595}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{463ED48D-6290-4E09-ABC0-E0C1EDBBF595}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{463ED48D-6290-4E09-ABC0-E0C1EDBBF595}.Release|Any CPU.ActiveCfg = Release|Any CPU

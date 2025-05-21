@@ -10,38 +10,68 @@ using Airport.Core.Models;
 using Airport.Core.Interfaces;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace Airport.Server.Services
 {
     public class SocketServer : IHostedService
     {
         private readonly ILogger<SocketServer> _logger;
-        private readonly IFlightService _flightService;
+        private readonly IServiceScopeFactory _serviceScopeFactory;
         private readonly Socket _serverSocket;
         private readonly ConcurrentDictionary<string, SemaphoreSlim> _seatLocks;
         private readonly ConcurrentDictionary<string, Socket> _clients;
         private CancellationTokenSource _cancellationTokenSource;
         private Task _listenTask;
+        private const int PORT = 11000;
+        private const int MAX_RETRY_ATTEMPTS = 3;
+        private const int RETRY_DELAY_MS = 1000;
 
-        public SocketServer(ILogger<SocketServer> logger, IFlightService flightService)
+        public SocketServer(ILogger<SocketServer> logger, IServiceScopeFactory serviceScopeFactory)
         {
             _logger = logger;
-            _flightService = flightService;
+            _serviceScopeFactory = serviceScopeFactory;
             _serverSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
             _seatLocks = new ConcurrentDictionary<string, SemaphoreSlim>();
             _clients = new ConcurrentDictionary<string, Socket>();
         }
 
-        public Task StartAsync(CancellationToken cancellationToken)
+        public async Task StartAsync(CancellationToken cancellationToken)
         {
             _cancellationTokenSource = CancellationTokenSource.CreateLinkedTokenSource(cancellationToken);
-            _serverSocket.Bind(new IPEndPoint(IPAddress.Any, 11000));
-            _serverSocket.Listen(100);
+            
+            int retryCount = 0;
+            while (retryCount < MAX_RETRY_ATTEMPTS)
+            {
+                try
+                {
+                    if (retryCount > 0)
+                    {
+                        _logger.LogInformation("Retrying socket bind attempt {RetryCount} of {MaxRetries}", retryCount + 1, MAX_RETRY_ATTEMPTS);
+                        await Task.Delay(RETRY_DELAY_MS, cancellationToken);
+                    }
+
+                    _serverSocket.Bind(new IPEndPoint(IPAddress.Any, PORT));
+                    _serverSocket.Listen(100);
+                    break;
+                }
+                catch (SocketException ex) when (ex.SocketErrorCode == SocketError.AddressAlreadyInUse)
+                {
+                    retryCount++;
+                    if (retryCount >= MAX_RETRY_ATTEMPTS)
+                    {
+                        throw new InvalidOperationException($"Failed to bind to port {PORT} after {MAX_RETRY_ATTEMPTS} attempts", ex);
+                    }
+                    
+                    _logger.LogWarning("Port {Port} is in use, waiting before retry...", PORT);
+                }
+            }
 
             _listenTask = ListenForClientsAsync(_cancellationTokenSource.Token);
             
-            _logger.LogInformation("Socket server started on port 11000");
-            return Task.CompletedTask;
+            _logger.LogInformation("Socket server started on port {Port}", PORT);
+            await Task.CompletedTask;
+            return;
         }
 
         public async Task StopAsync(CancellationToken cancellationToken)
@@ -178,39 +208,44 @@ namespace Airport.Server.Services
                 {
                     try
                     {
-                        // Check if seat is still available
-                        var isAvailable = await _flightService.IsSeatAvailableAsync(request.FlightId, request.SeatNumber);
-                        
-                        if (isAvailable)
+                        using (var scope = _serviceScopeFactory.CreateScope())
                         {
-                            // Try to assign seat
-                            var success = await _flightService.AssignSeatToPassengerAsync(
-                                request.FlightId,
-                                request.SeatNumber,
-                                request.PassportNumber);
-
-                            if (success)
+                            var flightService = scope.ServiceProvider.GetRequiredService<IFlightService>();
+                            
+                            // Check if seat is still available
+                            var isAvailable = await flightService.IsSeatAvailableAsync(request.FlightId, request.SeatNumber);
+                            
+                            if (isAvailable)
                             {
-                                await BroadcastToClientsAsync(new SocketMessage
-                                {
-                                    Type = "SeatAssigned",
-                                    Data = JsonSerializer.Serialize(new
-                                    {
-                                        FlightId = request.FlightId,
-                                        SeatNumber = request.SeatNumber
-                                    })
-                                });
+                                // Try to assign seat
+                                var success = await flightService.AssignSeatToPassengerAsync(
+                                    request.FlightId,
+                                    request.SeatNumber,
+                                    request.PassportNumber);
 
-                                await SendSuccessAsync(clientSocket, "Seat assigned successfully");
+                                if (success)
+                                {
+                                    await BroadcastToClientsAsync(new SocketMessage
+                                    {
+                                        Type = "SeatAssigned",
+                                        Data = JsonSerializer.Serialize(new
+                                        {
+                                            FlightId = request.FlightId,
+                                            SeatNumber = request.SeatNumber
+                                        })
+                                    });
+
+                                    await SendSuccessAsync(clientSocket, "Seat assigned successfully");
+                                }
+                                else
+                                {
+                                    await SendErrorAsync(clientSocket, "Failed to assign seat");
+                                }
                             }
                             else
                             {
-                                await SendErrorAsync(clientSocket, "Failed to assign seat");
+                                await SendErrorAsync(clientSocket, "Seat is no longer available");
                             }
-                        }
-                        else
-                        {
-                            await SendErrorAsync(clientSocket, "Seat is no longer available");
                         }
                     }
                     finally
@@ -236,25 +271,29 @@ namespace Airport.Server.Services
             
             try
             {
-                var success = await _flightService.UpdateFlightStatusAsync(request.FlightId, request.NewStatus);
-                
-                if (success)
+                using (var scope = _serviceScopeFactory.CreateScope())
                 {
-                    await BroadcastToClientsAsync(new SocketMessage
+                    var flightService = scope.ServiceProvider.GetRequiredService<IFlightService>();
+                    var success = await flightService.UpdateFlightStatusAsync(request.FlightId, request.NewStatus);
+                    
+                    if (success)
                     {
-                        Type = "FlightStatusChanged",
-                        Data = JsonSerializer.Serialize(new
+                        await BroadcastToClientsAsync(new SocketMessage
                         {
-                            FlightId = request.FlightId,
-                            Status = request.NewStatus
-                        })
-                    });
+                            Type = "FlightStatusChanged",
+                            Data = JsonSerializer.Serialize(new
+                            {
+                                FlightId = request.FlightId,
+                                Status = request.NewStatus
+                            })
+                        });
 
-                    await SendSuccessAsync(clientSocket, "Flight status updated successfully");
-                }
-                else
-                {
-                    await SendErrorAsync(clientSocket, "Failed to update flight status");
+                        await SendSuccessAsync(clientSocket, "Flight status updated successfully");
+                    }
+                    else
+                    {
+                        await SendErrorAsync(clientSocket, "Failed to update flight status");
+                    }
                 }
             }
             catch (Exception ex)
